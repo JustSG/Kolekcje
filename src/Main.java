@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -18,6 +21,20 @@ public class Main {
             //(typ nazwa:nazwa kolekcji)
             System.out.println(element + ", ");
         }
+        //przygotuj listę z liczbami wpisanymi z klawiatury
+        ArrayList<Integer> listaLiczbZKlawiatury = new ArrayList<>();
+        Scanner klawiatura = new Scanner(System.in);
+        System.out.println("Podaj 6 liczb: ");
+        for (int i = 0; i < 6; i++) {
+            int liczba = klawiatura.nextInt();
+            listaLiczbZKlawiatury.add(liczba);
+        }
+        //wypisz liczbę
+        System.out.println("Wprowadzona tablica:");
+        for (int i = 0; i < listaLiczbZKlawiatury.size(); i++) {
+            System.out.println(listaLiczbZKlawiatury.get(i));
+        }
+        System.out.println(listaLiczbZKlawiatury);
     }
 
 
@@ -31,5 +48,11 @@ public class Main {
        git remote set url origin https://github.com/JustSG/Kolekcje.git - żeby zmienić
     7. git push -u origin master - tylko raz
     8. git push
+
+    Kolekcje mogą mieć zmieniany rozmiar (dodawanie i usuwanie elementów).
+    Kolekcje jako elementy tylko typy złożone (z dużej litery):
+    -listy List - interfejs, ArrayList LinkedList
+    -zbiory Set - interfejs, HashSet
+    -mapy
      */
 }
