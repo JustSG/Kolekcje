@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
@@ -35,8 +37,45 @@ public class Main {
             System.out.println(listaLiczbZKlawiatury.get(i));
         }
         System.out.println(listaLiczbZKlawiatury);
-    }
 
+        //losowanie listy bez powtórzeń
+        ArrayList<Integer> listaLiczbWylosowanychBezPowtorzen = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            int liczba1 = (int) (Math.random() * 100 + 1);
+            while (listaLiczbWylosowanychBezPowtorzen.contains(liczba1)) {
+                liczba1 = (int) (Math.random() * 100 + 1);
+            }
+            listaLiczbWylosowanychBezPowtorzen.add(liczba1);
+        }
+        System.out.println("Lista bez powtórzeń: ");
+        System.out.println(listaLiczbWylosowanychBezPowtorzen);
+
+        //losowanie do zbioru
+        HashSet<Integer> zbiorLostwychBezPowtorzen = new HashSet<>();  //nie powtarza liczb
+        while(zbiorLostwychBezPowtorzen.size() < 6){
+            int liczba2 = (int) (Math.random() * 10 + 1);
+            zbiorLostwychBezPowtorzen.add(liczba2);
+        }
+        System.out.println("Liczby w zbiorze: ");
+        System.out.println(zbiorLostwychBezPowtorzen);
+
+        /*
+        listy:
+        uporządkowane, indexowane, elementy mogą się powtarzać.
+        zbiory:
+        są nieuporządkowane i bez powtórzeń.
+         */
+
+        //trafione
+        LinkedList<Integer> trafione = new LinkedList<>();
+        for (Integer wpisana:listaLiczbZKlawiatury) {
+            if(listaLiczbWylosowanychBezPowtorzen.contains(wpisana)){
+                trafione.add(wpisana);
+            }
+        }
+        System.out.println("Trafione: ");
+        System.out.println(trafione);
+    }
 
     /*
     1. git init
