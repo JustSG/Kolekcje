@@ -2,6 +2,12 @@ import java.util.*;
 
 public class Main {
 
+    /**
+     * wylosujListe - losuje liste liczb całkowitych z zakresu 1 do 100
+     *
+     * @param ileElementow - losowana liczba elementów
+     * @return - ArrayList z liczbami wylosowanym
+     */
     private static ArrayList<Integer> wylosujListe(int ileElementow) {
         ArrayList<Integer> listaLiczbWylosowanychBezPowtorzen = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
@@ -24,7 +30,7 @@ public class Main {
     private static ArrayList<Integer> wstawLiczbyDoListy(int ileElementow) {
         ArrayList<Integer> listaLiczbZKlawiatury = new ArrayList<>();
         Scanner klawiatura = new Scanner(System.in);
-        System.out.println("Podaj" + ileElementow + "liczb: ");
+        System.out.println("Podaj " + ileElementow + " liczb: ");
         for (int i = 0; i < ileElementow; i++) {
             int liczba = klawiatura.nextInt();
             listaLiczbZKlawiatury.add(liczba);
@@ -43,7 +49,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
+        ArrayList<Integer> losowe = wylosujListe(6);
+        wypiszListe(losowe);
+        ArrayList<Integer> wpisane = wstawLiczbyDoListy(6);
+        wypiszListe(wpisane);
+        LinkedList<Integer> trafione = zwrocElementyZObuList(losowe, wpisane);
+        wypiszListe(trafione);
     }
 
 }
